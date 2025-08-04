@@ -1,0 +1,25 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.github/**'
+      - 'mount/**'
+      - '.gitignore'
+      - 'LICENSE'
+      - 'README.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git pull and restart Docker
+        run: |
+          sshpass -p '${{ secrets.PASS }}' ssh -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} <<'ENDSSH'
+          cd ${{ secrets.APP_PATH }}
+          git pull
+          make down
+          make build
+          make up-d
+          ENDSSH
