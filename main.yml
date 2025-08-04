@@ -5,10 +5,10 @@ on:
       - main
     paths-ignore:
       - '.github/**'
-      - 'mount/**'
       - '.gitignore'
       - 'LICENSE'
-      - 'README.md'
+      - '**.md'
+      - '**.txt'
 
 jobs:
   build:
