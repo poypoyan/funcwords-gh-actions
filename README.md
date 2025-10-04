@@ -28,3 +28,15 @@ SSH to your VPS. After login, you'll be in home directory. Then perform the git 
 git clone https://<username>:<github_pat_your_copied_token>@github.com/<username>/funcwords-prod.git
 ```
 Finally rename the new directory to the value of APP_PATH (e.g., `mv funcwords-prod the-app`).
+
+## Sparse Checkout
+Do this to exclude files or directories when doing git pull.
+```bash
+git config core.sparsecheckout true
+```
+Then create the file `.git/info/sparse-checkout` with this content:
+```
+/*
+!other/
+```
+The first line says to include everything, and the second line excludes the `other` directory.
