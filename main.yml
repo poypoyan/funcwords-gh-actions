@@ -22,4 +22,5 @@ jobs:
           make down
           make build
           make up-d
+          make static
           ENDSSH
