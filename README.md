@@ -1,10 +1,10 @@
 # funcwords-gh-actions
 Github Actions config for Funcwords project + a tutorial
 
-**Update:** I now prefer manually running a local Bash script after `git push`, because the "deployment" just involves running a `git pull` in the server, then rebuilding and restarting Docker. So the steps to follow are the one below and then skip to [Setup Personal Access Token (PAT)](#setup-personal-access-token-pat).
+**Update:** I now prefer manually running a local Bash script after `git push`, because the "deployment" just involves running a `git pull` in the server, then rebuilding and restarting Docker. So the new first step to follow is the one below, and then skip to [Setup Personal Access Token (PAT)](#setup-personal-access-token-pat).
 
-## Add Local Bash Script for "Deployment"
-In the .git folder of a local clone of the production repository (e.g. `funcwords-prod`), create the `pass.txt` containing the SSH password, and [post-push.sh](https://github.com/poypoyan/funcwords-scripts/blob/main/post-push.sh) with the variables populated. Don't forget to `chmod +x post-push.sh`.
+## A Local Bash Script for "Deployment"
+In the .git folder of a local clone of the production repository (e.g. `funcwords-prod`), create the `pass.txt` containing the SSH password, and the [post-push.sh](https://github.com/poypoyan/funcwords-scripts/blob/main/post-push.sh) with the variables populated. Don't forget to `chmod +x post-push.sh`.
 
 Now after running `git push`, just run the Bash script to perform the deployment.
 
